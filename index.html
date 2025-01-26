@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VATSIM Traffic Tracker</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="modal-backdrop"></div>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-plane"></i>
+                    <h1>VATSIM Traffic Tracker</h1>
+                </div>
+                <div class="header-controls">
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <span class="stat-label">Pilots:</span>
+                            <span id="pilotCount" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">ATC:</span>
+                            <span id="atcCount" class="stat-value">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search-group">
+                    <div class="search-box">
+                        <i class="fas fa-plane-departure"></i>
+                        <input type="text" id="searchInput" placeholder="Search by callsign (e.g., BAW123)">
+                    </div>
+                    <button id="searchButton">Search</button>
+                </div>
+                
+                <div class="search-group">
+                    <div class="search-box">
+                        <i class="fas fa-plane-arrival"></i>
+                        <input type="text" id="airportInput" placeholder="Search airport (ICAO)...">
+                    </div>
+                    <button id="airportButton">Get Info</button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="map"></div>
+            <div id="airport-details" class="hidden">
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+                <h2>Airport Information</h2>
+                <div class="airport-sections">
+                    <div class="airport-section">
+                        <h3>METAR</h3>
+                        <div id="airport-metar"></div>
+                    </div>
+                    <div class="airport-section">
+                        <h3>Active Controllers</h3>
+                        <div id="airport-controllers"></div>
+                    </div>
+                    <div class="airport-section">
+                        <h3>Traffic</h3>
+                        <div class="traffic-tabs">
+                            <button class="tab-btn active" data-tab="inbound">Inbound</button>
+                            <button class="tab-btn" data-tab="outbound">Outbound</button>
+                        </div>
+                        <div id="airport-traffic"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

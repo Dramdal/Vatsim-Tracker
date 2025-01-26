@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="login-container" id="loginForm">
+        <h2>Admin Login</h2>
+        <form id="adminLoginForm">
+            <input type="password" id="adminPassword" placeholder="Enter admin password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <div class="dashboard-container hidden" id="dashboard">
+        <header>
+            <h1>Admin Dashboard</h1>
+            <button id="logoutBtn">Logout</button>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Current Active Users</h3>
+                <div class="stat-value" id="activeUsers">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Total Visitors (48h)</h3>
+                <div class="stat-value" id="totalVisitors">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Peak Users Today</h3>
+                <div class="stat-value" id="peakUsers">0</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h3>Visitor Traffic (Last 48 Hours)</h3>
+            <canvas id="visitorChart"></canvas>
+        </div>
+
+        <div class="table-container">
+            <h3>Recent Activity Log</h3>
+            <table id="activityLog">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Event</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html> 
